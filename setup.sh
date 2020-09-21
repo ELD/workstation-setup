@@ -12,6 +12,12 @@
 # Fail immediately if any errors occur
 set -e
 
+echo "Setting path to incldue /usr/local/bin"
+export PATH="/usr/local/bin:$PATH"
+
+echo "Pausing until you sign into the Mac App Store"
+read -n1 -r -p "Press any key to continue..." key
+
 echo "Caching password..."
 sudo -K
 sudo true;
@@ -28,17 +34,13 @@ fi
 
 # Note: Homebrew needs to be set up first
 source ${MY_DIR}/scripts/common/homebrew.sh
-source ${MY_DIR}/scripts/common/configuration-bash.sh
-
-# Place any applications that require the user to type in their password here
-brew cask install github
-brew cask install zoomus
+source ${MY_DIR}/scripts/common/gpg.sh
+source ${MY_DIR}/scripts/common/configuration-shell-utils.sh
+source ${MY_DIR}/scripts/common/configuration-zsh.sh
 
 source ${MY_DIR}/scripts/common/git.sh
 source ${MY_DIR}/scripts/common/git-aliases.sh
-source ${MY_DIR}/scripts/common/cloud-foundry.sh
-source ${MY_DIR}/scripts/common/applications-common.sh
-source ${MY_DIR}/scripts/common/unix.sh
+source ${MY_DIR}/scripts/common/applications-common.sh # Utils and whatnot
 source ${MY_DIR}/scripts/common/configuration-osx.sh
 source ${MY_DIR}/scripts/common/configurations.sh
 

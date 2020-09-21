@@ -9,14 +9,15 @@ echo "Installing Designer applications"
 
 # Graphic editing tools
 
-brew cask install adobe-creative-cloud
 brew cask install sketch
+brew cask install monodraw
 
-# Screen recording tools
+# Font syncing tools
 
-brew cask install recordit
-brew cask install skitch
-brew cask install licecap
-brew cask install screenflow
+brew cask install skyfonts
+
+# Install Mac App Store Apps
+
+mas install 1289583905 # Pixelmator Pro
 
 set -e

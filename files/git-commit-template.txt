@@ -1,0 +1,20 @@
+# <type>: <subject>
+
+# <body>
+
+# <footer>
+
+# For the title, use imperative case. For "type" use one of the following:
+# - feat (new feature)
+# - fix (bug fix)
+# - docs (changes to documentation)
+# - style (formatting, missing semicolon, etc; no code change)
+# - refactor (refactoring prod code)
+# - test (adding missing tests, refactoring tests; no prod code change)
+# - chore (updating grunt tasks, etc; no prod code change)
+
+# For the body, describe the change, if necessary. Should use imperative tone,
+# if possible.
+
+# For the footer, reference any GitHub issues or Pivotal Tracker story IDs
+

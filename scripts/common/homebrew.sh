@@ -20,8 +20,17 @@ echo "Installing Homebrew services..."
 brew tap homebrew/services
 
 echo
-echo "Adding Pivotal tap to Homebrew"
-brew tap pivotal/tap
+echo "Tapping Homebrew Cask"
+brew tap homebrew/homebrew-cask
+brew tap homebrew/homebrew-cask-versions
+
+echo
+echo "Tapping GitHub"
+brew tap github/gh
+
+echo
+echo "Tapping Homebrew fonts"
+brew tap homebrew/cask-fonts
 
 echo
 echo "Upgrading existing brews..."
@@ -29,7 +38,3 @@ brew upgrade
 
 echo "Cleaning up your Homebrew installation..."
 brew cleanup
-
-echo
-echo "Adding Homebrew's sbin to your PATH..."
-echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile

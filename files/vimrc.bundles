@@ -1,0 +1,75 @@
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+
+" Bundles {
+    call plug#begin()
+
+    " Better search
+    Plug 'jremmen/vim-ripgrep'
+
+    " Core config
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+
+    " Colors
+    Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
+    Plug 'kristijanhusak/vim-hybrid-material'
+    Plug 'morhetz/gruvbox'
+    Plug 'mhartington/oceanic-next'
+    Plug 'trevordmiller/nova-vim'
+    Plug 'phanviet/vim-monokai-pro'
+
+    "Airline Statusline
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    " Git stuff
+    Plug 'rhysd/conflict-marker.vim'
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
+
+    " Auto-pairing braces and parenthesis
+    Plug 'jiangmiao/auto-pairs'
+
+    " Easymotion
+    Plug 'easymotion/vim-easymotion'
+
+    " Syntax checking
+    Plug 'w0rp/ale'
+
+    " Easy commenting
+    Plug 'tpope/vim-commentary'
+
+    " Line things up for fun and profit
+    Plug 'godlygeek/tabular'
+
+    " Colored, 'rainbow' parenthesis for easy visual grepping
+    Plug 'luochen1990/rainbow'
+
+    " File management {
+        Plug 'scrooloose/nerdtree'
+        Plug 'jistr/vim-nerdtree-tabs'
+        Plug 'kien/ctrlp.vim'
+    " }
+
+    " Language support {
+        Plug 'sheerun/vim-polyglot'
+        Plug 'pangloss/vim-javascript'
+        Plug 'othree/html5.vim'
+        Plug 'hail2u/vim-css3-syntax'
+        Plug 'mxw/vim-jsx'
+        Plug 'HerringtonDarkholme/yats.vim'
+        Plug 'rust-lang/rust.vim'
+        Plug 'arzg/vim-rust-syntax-ext'
+    " }
+
+    " Preview Markdown files {
+        Plug 'greyblake/vim-preview'
+    " }
+
+    " Rust analyzer {
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " }
+
+    call plug#end()
+" }
+

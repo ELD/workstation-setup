@@ -1,47 +1,28 @@
 echo
 echo "Installing Git and associated tools"
+
 brew install git
-brew tap git-duet/tap
-brew install git-duet
-brew install git-pair
-brew install git-together
-brew install git-author
-brew install vim
-
-brew cask install rowanj-gitx
-brew cask install sourcetree
-
-echo
-echo "Putting a sample git-pair file in ~/.pairs"
-cp files/.pairs ~/.pairs
+brew install hub
+brew install gh
+brew install diff-so-fancy
 
 echo
 echo "Setting global Git configurations"
-git config --global core.editor /usr/local/bin/vim
-git config --global transfer.fsckobjects true
+git config --global core.editor /usr/local/bin/nvim
+git config --global core.pager 	"diff-so-fancy | less --tabs=4 -RFX"
 
-mkdir -p ~/.git_templates
-git config --global init.templateDir ~/.git_templates
-echo "ref: refs/heads/main" > ~/.git_templates/HEAD
+cp files/gitignore_global "${HOME}/.gitignore_global"
+git config --global core.excludesfile ~/.gitignore_global
 
-HOOKS_DIRECTORY=$HOME/workspace/git-hooks-core
-if [ ! -d $HOOKS_DIRECTORY ]; then
-  echo
-  echo "Installing git hooks for cred-alert"
-  # for more information see https://github.com/pivotal-cf/git-hooks-core
-  git clone https://github.com/pivotal-cf/git-hooks-core $HOOKS_DIRECTORY
-  git config --global --add core.hooksPath $HOOKS_DIRECTORY
-else
-  echo
-  echo "Updating git-hooks for cred-alert"
-  pushd $HOOKS_DIRECTORY
-  git pull -r
-  popd
-fi
+git config --global user.email "eric.dattore@gmail.com"
+git config --global user.name "Eric Dattore"
+git config --global user.signingkey 0x8973748FFF9B634F
 
-# install cred-alert-cli
-os_name=$(uname | awk '{print tolower($1)}')
-curl -o cred-alert-cli \
-  https://s3.amazonaws.com/cred-alert/cli/current-release/cred-alert-cli_${os_name}
-chmod 755 cred-alert-cli
-mv cred-alert-cli /usr/local/bin # <= or other directory in ${PATH}
+git config --global gpg.program /usr/local/bin/gpg
+cp files/git-commit-template.txt "${HOME}/.git-commit-template.txt"
+git config --global commit.template ~/.git-commit-template.txt
+
+git config --global commit.gpgSign true
+
+git config --global push.default current
+git config --global pull.rebase true
